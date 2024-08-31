@@ -1,16 +1,10 @@
 import cors from 'cors'
 import express, { json } from 'express'
+import router from './routers/index.js'
 
 const app = express()
 app.use(json())
 app.use(cors())
-
-app.get('/', (_req, res, next) => {
-  try {
-    return res.send({ message: 'hello' })
-  } catch (error) {
-    return next(error)
-  }
-})
+app.use(router)
 
 export default app
