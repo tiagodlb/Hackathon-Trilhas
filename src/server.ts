@@ -1,7 +1,7 @@
-import cors from 'cors'
-import express, { json } from 'express'
+import app from './app.js'
 
-const app = express()
-app.use(json())
-app.use(cors())
-export default app
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`)
+})
