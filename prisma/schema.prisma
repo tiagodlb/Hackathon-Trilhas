@@ -12,3 +12,30 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Ambassador {
+  id        Int     @id @default(autoincrement())
+  title     String
+  desc      String
+  estacao   Estacao @relation(fields: [estacaoId], references: [id])
+  estacaoId Int
+
+  @@map("ambassador")
+}
+
+model Estacao {
+  id         Int          @id @default(autoincrement())
+  name       String
+  desc       String
+  city       String
+  Ambassador Ambassador[]
+  Projeto    Projeto[]
+}
+
+model Projeto {
+  id        Int     @id @default(autoincrement())
+  title     String
+  desc      String
+  estacao   Estacao @relation(fields: [estacaoId], references: [id])
+  estacaoId Int
+}
