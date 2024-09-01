@@ -1,24 +1,31 @@
-import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import { Button } from './ui/button';
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
+import React from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
+import { Button } from './ui/button'
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from './ui/form'
+import { Input } from './ui/input'
+import { Textarea } from './ui/textarea'
 
 const SubscribeEmbaixadorForms: React.FC = () => {
   const formMethods = useForm({
     defaultValues: {
       name: '',
       email: '',
-      description: '',
-    },
-  });
+      description: ''
+    }
+  })
 
   return (
     <main className="pt-4">
-    <h1 className="pb-8 text-2xl">Seja um Embaixador</h1>
+      <h1 className="pb-8 text-2xl">Seja um Embaixador</h1>
       <FormProvider {...formMethods}>
-        <form className="space-y-8" onSubmit={formMethods.handleSubmit((data) => console.log(data))}>
+        <form className="space-y-8" onSubmit={formMethods.handleSubmit(data => console.log(data))}>
           <FormField
             name="name"
             render={({ field }: { field: any }) => (
@@ -27,9 +34,7 @@ const SubscribeEmbaixadorForms: React.FC = () => {
                 <FormControl>
                   <Input placeholder="Seu nome completo" {...field} />
                 </FormControl>
-                <FormDescription>
-                  Este é o nome que será utilizado para contato.
-                </FormDescription>
+                <FormDescription>Este é o nome que será utilizado para contato.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -55,7 +60,10 @@ const SubscribeEmbaixadorForms: React.FC = () => {
               <FormItem>
                 <FormLabel>Por que você quer ser um embaixador?</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Explique brevemente por que você deseja se tornar um embaixador" {...field} />
+                  <Textarea
+                    placeholder="Explique brevemente por que você deseja se tornar um embaixador"
+                    {...field}
+                  />
                 </FormControl>
                 <FormDescription>
                   Fale um pouco sobre seu interesse e como você pode contribuir.
@@ -65,12 +73,14 @@ const SubscribeEmbaixadorForms: React.FC = () => {
             )}
           />
           <div className="flex space-x-4">
-            <Button type="submit">Enviar</Button>
+            <Button type="submit" className="cursor-pointer">
+              Enviar
+            </Button>
           </div>
         </form>
       </FormProvider>
     </main>
-  );
-};
+  )
+}
 
-export default SubscribeEmbaixadorForms;
+export default SubscribeEmbaixadorForms

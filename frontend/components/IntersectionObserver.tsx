@@ -31,10 +31,10 @@ const AnimatedText = () => {
   return (
     <div style={{ flex: 1, paddingRight: '20px' }}>
       <p className="text-2xl animate-fadeInUp text-left font-mono">
-        A <b className="text-[#81B7FF]">IntegraTech</b> é uma equipe dedicada à tecnologia, formada
+       A <b className="text-[#81B7FF]">IntegraTech</b> é uma equipe dedicada à tecnologia, formada
         durante o hackathon do Trilhas Inova. Nosso objetivo é mobilizar pessoas para as Estações
         Tech. Promovemos essas estações como espaços de inclusão digital e desenvolvimento.
-      </p>
+        </p>
     </div>
   )
 }

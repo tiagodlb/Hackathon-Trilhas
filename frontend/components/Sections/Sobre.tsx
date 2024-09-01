@@ -1,20 +1,26 @@
 import React from 'react'
+import AnimatedText from '../IntersectionObserver'
 
 const Sobre: React.FC = () => {
   return (
     <main className="pt-32">
-      <div className="flex flex-col md:flex-row items-center justify-between p-10 md:p-20">
-        <div className="flex-1 md:pr-5">
+      <div
+        className="flex flex-col-reverse md:flex-row gap-2 md:gap-4"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '40px'
+        }}
+      >
+        <div style={{ flex: 1, paddingRight: '20px' }}>
           {/* <h1 className="text-2xl">
           Nossa <span className="text-[#81B7FF]">História</span>
           </h1> */}
-          <p>
-            Lorel Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Donec Eget Nunc Vel Nunc
-            Malesuada Tincidunt. Nulla Facilisi. Nulla Tempor,
-          </p>
+          <AnimatedText />
         </div>
-        <div className="flex-shrink-0 mt-10 md:mt-0">
-          <img src="./img.png" alt="Sobre nós" className="max-w-full md:max-w-lg h-auto" />
+        <div style={{ flexShrink: 0 }}>
+          <img src="./img.png" alt="Sobre nós" style={{ maxWidth: '550px', height: '360px' }} />
         </div>
       </div>
     </main>
