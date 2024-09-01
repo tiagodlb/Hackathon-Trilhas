@@ -1,5 +1,5 @@
 import { workProjetos } from "@/data";
-import { Button } from "./ui/MovingBorders";
+import { Button } from "../ui/MovingBorders";
 
 const Projetos = () => {
   return (

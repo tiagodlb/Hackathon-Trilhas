@@ -5,7 +5,7 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 
-const EmbaixadoresSubscribeSection: React.FC = () => {
+const SubscribeEmbaixadorForms: React.FC = () => {
   const formMethods = useForm({
     defaultValues: {
       name: '',
@@ -15,12 +15,13 @@ const EmbaixadoresSubscribeSection: React.FC = () => {
   });
 
   return (
-    <main className="pt-32">
+    <main className="pt-4">
+    <h1 className="pb-8 text-2xl">Seja um Embaixador</h1>
       <FormProvider {...formMethods}>
         <form className="space-y-8" onSubmit={formMethods.handleSubmit((data) => console.log(data))}>
           <FormField
             name="name"
-            render={({ field }) => (
+            render={({ field }: { field: any }) => (
               <FormItem>
                 <FormLabel>Nome Completo</FormLabel>
                 <FormControl>
@@ -35,7 +36,7 @@ const EmbaixadoresSubscribeSection: React.FC = () => {
           />
           <FormField
             name="email"
-            render={({ field }) => (
+            render={({ field }: { field: any }) => (
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
@@ -50,7 +51,7 @@ const EmbaixadoresSubscribeSection: React.FC = () => {
           />
           <FormField
             name="description"
-            render={({ field }) => (
+            render={({ field }: { field: any }) => (
               <FormItem>
                 <FormLabel>Por que você quer ser um embaixador?</FormLabel>
                 <FormControl>
@@ -72,4 +73,4 @@ const EmbaixadoresSubscribeSection: React.FC = () => {
   );
 };
 
-export default EmbaixadoresSubscribeSection;
+export default SubscribeEmbaixadorForms;
