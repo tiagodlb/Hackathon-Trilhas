@@ -1,14 +1,9 @@
 import { FaLocationArrow } from 'react-icons/fa6'
 
-<<<<<<< HEAD:frontend/components/Hero.tsx
-import MagicButton from './MagicButton'
-import { Spotlight } from './ui/Spotlight'
-import { TextGenerateEffect } from './ui/TextGenerateEffect'
-=======
-import MagicButton from "../MagicButton";
-import { Spotlight } from "../ui/Spotlight";
-import { TextGenerateEffect } from "../ui/TextGenerateEffect";
->>>>>>> 74c2335460069242968d78d20844a015da6675dd:frontend/components/Sections/Hero.tsx
+import MagicButton from '../MagicButton'
+import { Spotlight } from '../ui/Spotlight'
+import { TextGenerateEffect } from '../ui/TextGenerateEffect'
+
 
 const Hero = () => {
   return (
