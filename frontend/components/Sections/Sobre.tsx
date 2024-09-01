@@ -8,9 +8,13 @@ const Sobre: React.FC = () => {
           {/* <h1 className="text-2xl">
           Nossa <span className="text-[#81B7FF]">História</span>
           </h1> */}
-          <p>
-            Lorel Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Donec Eget Nunc Vel Nunc Malesuada Tincidunt. Nulla Facilisi. Nulla Tempor,
-          </p>
+         <div style={{ flex: 1, paddingRight: '20px' }}>
+          <p className="text-2xl animate-fadeInUp text-left font-mono">
+          A <b className="text-[#81B7FF]">IntegraTech</b> é uma equipe dedicada à tecnologia, formada
+            durante o hackathon do Trilhas Inova. Nosso objetivo é mobilizar pessoas para as Estações
+            Tech. Promovemos essas estações como espaços de inclusão digital e desenvolvimento.
+            </p>
+        </div>
         </div>
         <div className="flex-shrink-0 mt-10 md:mt-0">
           <img src="./img.png" alt="Sobre nós" className="max-w-full md:max-w-lg h-auto" />
