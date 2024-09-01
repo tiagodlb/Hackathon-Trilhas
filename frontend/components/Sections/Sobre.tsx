@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Sobre: React.FC = () => {
   return (
@@ -9,7 +9,8 @@ const Sobre: React.FC = () => {
           Nossa <span className="text-[#81B7FF]">História</span>
           </h1> */}
           <p>
-            Lorel Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Donec Eget Nunc Vel Nunc Malesuada Tincidunt. Nulla Facilisi. Nulla Tempor,
+            Lorel Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Donec Eget Nunc Vel Nunc
+            Malesuada Tincidunt. Nulla Facilisi. Nulla Tempor,
           </p>
         </div>
         <div className="flex-shrink-0 mt-10 md:mt-0">
@@ -17,8 +18,7 @@ const Sobre: React.FC = () => {
         </div>
       </div>
     </main>
-  );
-};
+  )
+}
 
-
-export default Sobre;
+export default Sobre
