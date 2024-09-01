@@ -7,7 +7,7 @@ const RepresentanteCard: React.FC = () => {
     <div className="flex-1 pr-5">
       <div className="flex flex-col items-center">
         <img
-          src="https://via.placeholder.com/150"
+          src="./profile.jpg"
           alt="Silmayra Marques"
           className="rounded-full mb-4"
         />
@@ -15,7 +15,7 @@ const RepresentanteCard: React.FC = () => {
           Silmayra Marques
         </h1>
         <p className="text-center">
-          Silmayra Marques, líder visionária, guia sua equipe na estação tech com inovação e excelência.
+          Líder visionária da estação tech Solar dos Lusitanos, guia sua comunidade com inovação e excelência.
         </p>
       </div>
     </div>

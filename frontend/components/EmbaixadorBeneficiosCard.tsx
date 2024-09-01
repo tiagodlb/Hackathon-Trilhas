@@ -8,19 +8,19 @@ const EmbaixadorBeneficiosCard: React.FC = () => {
             <Card className="flex-1 min-w-[200px] max-w-[300px] rounded-lg shadow-lg h-[150px] sm:h-[200px]">
             <CardTitle>Certificação</CardTitle>
             <CardDescription>
-                Este é o primeiro card. Ele é responsivo e possui bordas arredondadas.
+                Ofereça uma certificação oficial ao final de um período de atuação como embaixador.
             </CardDescription>
             </Card>
             <Card className="flex-1 min-w-[200px] max-w-[300px] rounded-lg shadow-lg h-[250px] sm:h-[300px]">
             <CardTitle>Reconhecimento</CardTitle>
             <CardDescription>
-                Este é o segundo card, também com bordas arredondadas e maior que os outros.
+                Enriquece o currículo e pode abrir portas para novas oportunidades de trabalho e educação.
             </CardDescription>
             </Card>
             <Card className="flex-1 min-w-[200px] max-w-[300px] rounded-lg shadow-lg h-[150px] sm:h-[200px]">
             <CardTitle>Networking</CardTitle>
             <CardDescription>
-                Este é o terceiro card, que é menor que o segundo e tem altura igual ao primeiro.
+                Embaixadores se conectam com líderes, especialistas e empregadores.
             </CardDescription>
             </Card>
         </div>
