@@ -1,12 +1,13 @@
 import ambassadorService from '@/services/ambassadorService.js'
 import { Request, Response } from 'express'
+import { GetAmbassadorData } from '@/types/ambassadorType.js'
 
 /**
  * Get all Ambassadors
  * @param {Request} req
  * @param {Response} res
  */
-export async function getAmbassador(req: Request, res: Response) {
+export async function getAmbassador(req: Request, res: Response): Promise<Response> {
   try {
     const ambassadors = await ambassadorService.findAllAmbassador()
     return res.status(200).json(ambassadors)
@@ -20,9 +21,10 @@ export async function getAmbassador(req: Request, res: Response) {
  * @param {Request} req
  * @param {Response} res
  */
-export async function postAmbassador(req: Request, res: Response) {
+export async function postAmbassador(req: Request, res: Response): Promise<Response> {
   try {
-    await ambassadorService.createAmbassador(req.body)
+    const data: GetAmbassadorData = req.body
+    await ambassadorService.createAmbassador(data)
     return res.sendStatus(201)
   } catch (error) {
     return res.status(400).json({ error: 'Failed to create Ambassador' })
@@ -30,13 +32,15 @@ export async function postAmbassador(req: Request, res: Response) {
 }
 
 /**
- * Update an existing Ambassador
+ * Update an Ambassador
  * @param {Request} req
  * @param {Response} res
  */
-export async function updateAmbassador(req: Request, res: Response) {
+export async function updateAmbassador(req: Request, res: Response): Promise<Response> {
   try {
-    await ambassadorService.updateAmbassador(req.body)
+    const id: number = Number(req.params.id)
+    const data: GetAmbassadorData = req.body
+    await ambassadorService.updateAmbassador(id, data)
     return res.sendStatus(200)
   } catch (error) {
     return res.status(400).json({ error: 'Failed to update Ambassador' })
@@ -48,11 +52,11 @@ export async function updateAmbassador(req: Request, res: Response) {
  * @param {Request} req
  * @param {Response} res
  */
-export async function deleteAmbassador(req: Request, res: Response) {
+export async function deleteAmbassador(req: Request, res: Response): Promise<Response> {
   try {
-    const { id } = req.params
-    await ambassadorService.deleteAmbassador(Number(id))
-    return res.sendStatus(200)
+    const id: number = Number(req.params.id)
+    await ambassadorService.deleteAmbassador(id)
+    return res.sendStatus(204)
   } catch (error) {
     return res.status(400).json({ error: 'Failed to delete Ambassador' })
   }
