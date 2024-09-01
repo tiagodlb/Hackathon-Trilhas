@@ -1,5 +1,5 @@
 import React from 'react';
-import RepresentanteCard from './ui/RepresentantesCard';
+import RepresentanteCard from '../ui/RepresentantesCard';
 
 const RepresentanteSection: React.FC = () => {
   return (
