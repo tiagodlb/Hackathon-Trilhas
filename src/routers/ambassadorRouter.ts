@@ -1,11 +1,16 @@
-import { getAmbassador, postAmbassador } from '@/controllers/ambassadorController.js'
-import { validateSchemaMiddleware } from '@/middlewares/validateSchemaMiddleware.js'
-import { ambassadorSchema } from '@/schemas/ambassadorSchema.js'
-import { Router } from 'express'
+import express from 'express'
+import {
+  getAmbassador,
+  postAmbassador,
+  updateAmbassador,
+  deleteAmbassador
+} from '@/controllers/ambassadorController.js'
 
-const ambassadorRouter = Router()
+const router = express.Router()
 
-ambassadorRouter.post('/ambassador', validateSchemaMiddleware(ambassadorSchema), postAmbassador)
-ambassadorRouter.get('/ambassador', getAmbassador)
+router.get('/ambassadors', getAmbassador)
+router.post('/ambassadors', postAmbassador)
+router.put('/ambassadors', updateAmbassador)
+router.delete('/ambassadors/:id', deleteAmbassador)
 
-export default ambassadorRouter
+export default router
