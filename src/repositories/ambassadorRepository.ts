@@ -22,3 +22,16 @@ export async function insertAmbassador(ambassador: GetAmbassadorData) {
     data: ambassador
   })
 }
+
+export async function updateAmbassador(id: number, data: GetAmbassadorData) {
+  return prisma.ambassador.update({
+    where: { id },
+    data
+  })
+}
+
+export async function deleteAmbassador(id: number) {
+  return prisma.ambassador.delete({
+    where: { id }
+  })
+}

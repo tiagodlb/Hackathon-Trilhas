@@ -3,11 +3,11 @@ import { NextFunction, Request, Response } from 'express'
 
 export function errorHandlerMiddleware(
   err: Error | AppError,
-  req: Request,
+  _req: Request,
   res: Response,
-  next: NextFunction
-) {
-  console.log('Ooops! An error occured!', err)
+  _next: NextFunction
+): Response<any> | void {
+  console.error('Oops! An error occurred!', err)
 
   if (isAppError(err)) {
     return res.status(errorTypeToStatusCode(err.type)).send(err.message)

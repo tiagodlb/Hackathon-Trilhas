@@ -1,61 +1,59 @@
-import {Request, Response} from 'express'; 
-import { prisma } from '../database.js';
+import estacaoService from '@/services/estacaoService.js'
+import { Request, Response } from 'express'
 
-export default async function createEstacao(request: Request, response: Response){
-    try {
-      const {id, name, desc, city} = request.body;
-      const estacaoExist = await prisma.estacao.findUnique({
-        where: {id},
-    });
-
-      if (estacaoExist) {
-        return response.json ({
-          error: true,
-          message: 'Erro: Estação já existe!'
-        });
-      }
-
-      const estacao = await prisma.estacao.create ({
-        data: {
-          id,
-          name,
-          desc,
-          city
-        }
-      });
-
-      return response.json ({
-        error: false,
-        message: 'Sucesso: Estação criada com sucesso!',
-        estacao
-      });
-  
-    } catch (error: any) {
-      return response.json({message: error.message});
-    }
+/**
+ * Get all Estacoes
+ * @param {Request} req
+ * @param {Response} res
+ */
+export async function getEstacoes(req: Request, res: Response) {
+  try {
+    const estacoes = await estacaoService.findAllEstacao()
+    return res.status(200).json(estacoes)
+  } catch (error) {
+    return res.status(500).json({ error: 'Failed to fetch Estacoes' })
   }
+}
 
-  export async function listEstacao(request: Request, response: Response){
-    try {
-      const {id} = request.params;
-  
-  
-      const estacao = await prisma.estacao.findUnique({where: {id: Number(id)}});
-  
-      if(!estacao){
-        return response.json ({
-        error: true,
-        message: 'Erro: Estação não encontrada!'
-      });
-     }
-  
-       return response.json ({
-        error: false,
-        estacao
-      });
-  
-  
-    } catch (error: any) {
-      return response.json({message: error.message});
-    }
+/**
+ * Create a new Estacao
+ * @param {Request} req
+ * @param {Response} res
+ */
+export async function postEstacao(req: Request, res: Response) {
+  try {
+    await estacaoService.createEstacao(req.body)
+    return res.sendStatus(201)
+  } catch (error) {
+    return res.status(400).json({ error: 'Failed to create Estacao' })
   }
+}
+
+/**
+ * Update an existing Estacao
+ * @param {Request} req
+ * @param {Response} res
+ */
+export async function updateEstacao(req: Request, res: Response) {
+  try {
+    await estacaoService.updateEstacao(req.body)
+    return res.sendStatus(200)
+  } catch (error) {
+    return res.status(400).json({ error: 'Failed to update Estacao' })
+  }
+}
+
+/**
+ * Delete an Estacao
+ * @param {Request} req
+ * @param {Response} res
+ */
+export async function deleteEstacao(req: Request, res: Response) {
+  try {
+    const { id } = req.params
+    await estacaoService.deleteEstacao(Number(id))
+    return res.sendStatus(200)
+  } catch (error) {
+    return res.status(400).json({ error: 'Failed to delete Estacao' })
+  }
+}
